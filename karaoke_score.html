@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Div</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #centered-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 250px;
+            font-weight: bold;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-color: yellow;
+            color: red;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 70px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="centered-div">
+        99
+    </div>
+
+    <button id="calculateButton">Calcular</button>
+
+    <script>
+        const centeredDiv = document.getElementById("centered-div");
+        const calculateButton = document.getElementById("calculateButton");
+
+        calculateButton.addEventListener("click", function() {
+            let dots = ".";
+            centeredDiv.textContent = dots;
+
+            let timer = setInterval(function() {  // Use setInterval
+                dots += ".";
+                centeredDiv.textContent = dots;
+
+                if (dots.length === 5) {
+                    clearInterval(timer); // Stop the interval
+                    setTimeout(function() {
+                        const randomNumber = Math.floor(Math.random() * (99 - 70 + 1)) + 70;
+                        centeredDiv.textContent = randomNumber;
+                    }, 1000); // Final timeout for the number
+                }
+            }, 500); // 2 seconds interval
+        });
+    </script>
+
+</body>
+</html>
