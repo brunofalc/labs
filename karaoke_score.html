@@ -47,9 +47,15 @@
 
     <button id="calculateButton">Calcular</button>
 
+    <audio id="clappingSound" preload="auto">
+        <source src="clapping.mp3" type="audio/mp3">
+        <source src="claping.wav" type="audio/wav">
+    </audio>
+
     <script>
         const centeredDiv = document.getElementById("centered-div");
         const calculateButton = document.getElementById("calculateButton");
+        const clappingSound = document.getElementById("clappingSound");
 
         calculateButton.addEventListener("click", function() {
             let dots = ".";
@@ -64,6 +70,7 @@
                     setTimeout(function() {
                         const randomNumber = Math.floor(Math.random() * (99 - 70 + 1)) + 70;
                         centeredDiv.textContent = randomNumber;
+                        clappingSound.play()
                     }, 1000); // Final timeout for the number
                 }
             }, 500); // 2 seconds interval
